@@ -3,7 +3,7 @@ module PRBS (
     input logic RSTn,
     input logic [7:0] in,
     input logic [7:0] n,
-    output logic [7:0] ouet
+    output logic [7:0] out
 );
     reg [15:0] LSFR;
     reg start;
