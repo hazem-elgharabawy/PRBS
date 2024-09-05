@@ -1,4 +1,6 @@
-module PRBS_PD_WPR (
+module PRBS_PD_WPR #(
+    parameter PATTERN = 32h'AABBCCDD;
+) (
     input bit CLK,
     input logic RSTn,
     input logic [31:0] in,
@@ -15,7 +17,7 @@ module PRBS_PD_WPR (
         .out(out)
     );
 
-    pattern_detector Patter_Detector (
+    pattern_detector #(PATTERN) Patter_Detector (
         .CLK(CLK),
         .RSTn(RSTn),
         .in(out),

@@ -1,5 +1,5 @@
 module pattern_detector#(
-    parameter pattern =32h'AABBCCDD;
+    parameter PATTERN =32h'AABBCCDD;
 ) (
     input bit CLK,
     input logic RSTn,
@@ -35,7 +35,7 @@ module pattern_detector#(
     always @(*) begin
         case (current_state)
             first_byte: begin
-                if (in==pattern[31:24]) begin
+                if (in==PATTERN[31:24]) begin
                     next_state = second_byte;
                 end
                 else begin
@@ -43,7 +43,7 @@ module pattern_detector#(
                 end
             end
             second_byte: begin
-                if (in==pattern[23:16]) begin
+                if (in==PATTERN[23:16]) begin
                     next_state = third_byte;
                 end
                 else begin
@@ -51,7 +51,7 @@ module pattern_detector#(
                 end
             end
             third_byte: begin
-                if (in==pattern[15:8]) begin
+                if (in==PATTERN[15:8]) begin
                     next_state = fourth_byte;
                 end
                 else begin
@@ -80,7 +80,7 @@ module pattern_detector#(
                 flag = 0;
             end 
             fourth_byte:begin
-                if (in == pattern[7:0]) begin
+                if (in == PATTERN[7:0]) begin
                     flag = 1;    
                 end
                 else begin
