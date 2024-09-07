@@ -1,5 +1,5 @@
 module pattern_detector#(
-    parameter PATTERN =32h'AABBCCDD;
+    parameter PATTERN =32'hAABBCCDD
 ) (
     input bit CLK,
     input logic RSTn,
@@ -7,7 +7,7 @@ module pattern_detector#(
     input logic [7:0] n,
     output logic pattern_detected
 );
-    enum {
+    typedef enum {
         first_byte,
         second_byte,
         third_byte,

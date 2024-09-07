@@ -20,19 +20,19 @@ module PRBS (
         else if (!pattern_done) begin
             case (inner_counter)
                 0 : begin
-                   out <= in[7:0];
+                   out <= in[31:24];
                    inner_counter <= inner_counter +1;
                 end
                 1 : begin
-                    out <= in[15:8];
+                    out <= in[23:16];
                     inner_counter <= inner_counter +1;
                 end 
                 2 : begin
-                    out <= in[23:16];
+                    out <= in[15:8];
                     inner_counter <= inner_counter +1;
                 end
                 3 : begin
-                   out <= in[31:24];
+                   out <= in[7:0];
                    if (outer_counter == (n-1)) begin
                         outer_counter <= 0;
                         inner_counter <= 0;

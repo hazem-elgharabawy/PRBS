@@ -1,5 +1,5 @@
 module PRBS_PD_WPR #(
-    parameter PATTERN = 32h'AABBCCDD;
+    parameter PATTERN = 32'hAABBCCDD
 ) (
     input bit CLK,
     input logic RSTn,
