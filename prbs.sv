@@ -5,14 +5,14 @@ module PRBS (
     input logic [31:0] in,
     output logic [7:0] out
 );
-    reg [15:0] LSFR;
+    reg [14:0] LSFR;
     reg pattern_done;
     reg [7:0] inner_counter;
     reg [7:0] outer_counter;
     always @(posedge CLK or negedge RSTn ) begin
         if (!RSTn) begin
             out <= 0;
-            LSFR <= in[15:0];
+            LSFR <= in[14:0];
             pattern_done <= 1'b0;
             inner_counter <= 0;
             outer_counter <= 0;
@@ -52,7 +52,7 @@ module PRBS (
             endcase
         end
         else begin
-            LSFR <= {LSFR[14:0],(LSFR[14]^LSFR[15])};
+            LSFR <= {LSFR[13:0],(LSFR[13]^LSFR[14])};
             out <= LSFR[7:0];   
         end
     end
