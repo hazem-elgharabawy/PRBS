@@ -154,8 +154,6 @@ project_1/project_1.runs/impl_2/PRBS_PD_WPR_routed.dcp
 project_1/project_1.runs/impl_2/PRBS_PD_WPR_timing_summary_routed.pb
 project_1/project_1.runs/impl_2/PRBS_PD_WPR_timing_summary_routed.rpt
 project_1/project_1.runs/impl_2/PRBS_PD_WPR_timing_summary_routed.rpx
-report/waveform.png
-report/elaborated design.png
 project_1/project_1.srcs/constrs_1/new/PRBS_PD_WPR.xdc
 project_1/project_1.runs/synth_2/.Xil/PRBS_PD_WPR_propImpl.xdc
 project_1/project_1.runs/synth_2/vivado.pb
@@ -270,8 +268,5 @@ project_1/project_1.runs/impl_3/vivado_9900.backup.jou
 project_1/project_1.runs/impl_3/vivado.jou
 project_1/project_1.runs/impl_3/vivado.pb
 project_1/project_1.runs/impl_3/write_bitstream.pb
-report/Timing.png
 project_1/basys_PRBS.xdc
-report/implementation.png
-report/PRBS_PD_WPR.bit
-report/synthesis.png
+
