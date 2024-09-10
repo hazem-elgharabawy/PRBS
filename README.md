@@ -429,5 +429,7 @@ task automatic RST_CHECK();
 
 ![alt text](report/implementation.png)
 
-## REPORTS
+## Generated Bit stream 
+
+[PRBS_PD_WPR.bit](report/PRBS_PD_WPR.bit)
 
