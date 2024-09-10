@@ -3,6 +3,7 @@ module pattern_detector#(
 ) (
     input bit CLK,
     input logic RSTn,
+    input logic data_valid,
     input logic [7:0] in,
     input logic [7:0] n,
     output logic pattern_detected
@@ -35,7 +36,10 @@ module pattern_detector#(
     always @(*) begin
         case (current_state)
             first_byte: begin
-                if (in==PATTERN[31:24]) begin
+                if (!data_valid) begin
+                    next_state = first_byte;
+                end
+                else if (in==PATTERN[31:24]) begin
                     next_state = second_byte;
                 end
                 else begin
@@ -43,7 +47,10 @@ module pattern_detector#(
                 end
             end
             second_byte: begin
-                if (in==PATTERN[23:16]) begin
+                if (!data_valid) begin
+                    next_state = first_byte;
+                end
+                else if (in==PATTERN[23:16]) begin
                     next_state = third_byte;
                 end
                 else begin
@@ -51,7 +58,10 @@ module pattern_detector#(
                 end
             end
             third_byte: begin
-                if (in==PATTERN[15:8]) begin
+                if (!data_valid) begin
+                    next_state = first_byte;
+                end
+                else if (in==PATTERN[15:8]) begin
                     next_state = fourth_byte;
                 end
                 else begin
@@ -99,6 +109,10 @@ module pattern_detector#(
             counter <= 0;
             pattern_detected <= 0;
         end
+        else if (!data_valid) begin
+            counter <= 0;
+            pattern_detected <= 0;
+        end 
         else if(current_state==fourth_byte && !flag)begin
             counter <= 0;
         end

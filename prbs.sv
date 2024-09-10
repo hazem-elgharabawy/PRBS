@@ -1,6 +1,7 @@
 module PRBS (
     input bit CLK,
     input logic RSTn,
+    input logic data_valid,
     input logic [7:0] n,
     input logic [31:0] in,
     output logic [7:0] out
@@ -13,6 +14,12 @@ module PRBS (
         if (!RSTn) begin
             out <= 0;
             LSFR <= in[14:0];
+            pattern_done <= 1'b0;
+            inner_counter <= 0;
+            outer_counter <= 0;
+        end
+        else if (!data_valid)begin
+            out <= 0;
             pattern_done <= 1'b0;
             inner_counter <= 0;
             outer_counter <= 0;
